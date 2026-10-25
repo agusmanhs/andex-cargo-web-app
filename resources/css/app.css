@@ -1,0 +1,14 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+@theme {
+    --font-sans: 'Plus Jakarta Sans', 'Inter', ui-sans-serif, system-ui, sans-serif;
+    --color-andex-blue: #1E3A8A;
+    --color-andex-dark: #0F172A;
+    --color-andex-red: #DC2626;
+    --color-andex-sky: #0284C7;
+}
