@@ -8,8 +8,8 @@
 :root {
     --stitch-royal-blue: #1D58CD;
     --stitch-royal-blue-dark: #1546A8;
-    --stitch-royal-blue-hover: rgba(255, 255, 255, 0.10);
-    --stitch-royal-blue-active: rgba(255, 255, 255, 0.18);
+    --stitch-royal-blue-hover: rgba(255, 255, 255, 0.12);
+    --stitch-royal-blue-active: rgba(255, 255, 255, 0.20);
     --stitch-red: #c5161d;
     --stitch-red-hover: #a81318;
 }
@@ -21,12 +21,12 @@ body, html {
 }
 
 /* --------------------------------------------------------------------------
-   1. SIDEBAR - SOLID ROYAL BLUE
+   1. SIDEBAR - ULTRA-CRISP HIGH CONTRAST TYPOGRAPHY ON ROYAL BLUE
    -------------------------------------------------------------------------- */
 aside.fi-sidebar {
-    background-color: var(--stitch-royal-blue) !important;
+    background: linear-gradient(180deg, #1D58CD 0%, #1748AB 100%) !important;
     border-right: none !important;
-    box-shadow: 4px 0 24px rgba(29, 88, 205, 0.12) !important;
+    box-shadow: 4px 0 24px rgba(23, 72, 171, 0.18) !important;
 }
 
 aside.fi-sidebar nav,
@@ -35,14 +35,13 @@ aside.fi-sidebar div {
     scrollbar-color: rgba(255, 255, 255, 0.25) transparent !important;
 }
 
-/* Sidebar Header Area */
 aside.fi-sidebar .fi-sidebar-header {
-    background-color: var(--stitch-royal-blue) !important;
+    background: transparent !important;
     border-bottom: none !important;
     padding: 1.25rem 1.25rem 0.5rem 1.25rem !important;
 }
 
-/* Sidebar New Shipment Red Button */
+/* Sidebar Red Button */
 .stitch-new-shipment-btn,
 a.stitch-new-shipment-btn {
     background-color: var(--stitch-red) !important;
@@ -51,6 +50,7 @@ a.stitch-new-shipment-btn {
     border: none !important;
     border-radius: 0.75rem !important;
     box-shadow: 0 4px 14px rgba(197, 22, 29, 0.4) !important;
+    text-decoration: none !important;
 }
 
 .stitch-new-shipment-btn:hover,
@@ -60,58 +60,113 @@ a.stitch-new-shipment-btn:hover {
     box-shadow: 0 6px 18px rgba(197, 22, 29, 0.5) !important;
 }
 
-/* Sidebar Navigation Items */
+/* Group Headers (OPERASIONAL KARGO, MASTER WILAYAH) */
+aside.fi-sidebar .fi-sidebar-group-label,
+aside.fi-sidebar .fi-sidebar-group-button,
+aside.fi-sidebar .fi-sidebar-group-button span,
+aside.fi-sidebar .fi-sidebar-group-label span {
+    color: #bae6fd !important; /* Soft luminous sky blue - highly legible and attractive! */
+    font-size: 0.725rem !important;
+    font-weight: 800 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.08em !important;
+}
+
+aside.fi-sidebar .fi-sidebar-group-icon,
+aside.fi-sidebar .fi-sidebar-group-button svg {
+    color: #93c5fd !important;
+    opacity: 0.95 !important;
+    width: 1.25rem !important;
+    height: 1.25rem !important;
+}
+
+aside.fi-sidebar .fi-sidebar-group-collapse-button,
+aside.fi-sidebar .fi-sidebar-group-collapse-button svg {
+    color: #93c5fd !important;
+}
+
+/* Sidebar Items Base */
 aside.fi-sidebar .fi-sidebar-item-button {
-    color: rgba(255, 255, 255, 0.88) !important;
+    background-color: transparent !important;
     border-radius: 0.75rem !important;
     padding: 0.65rem 0.85rem !important;
-    margin: 0.15rem 0.5rem !important;
-    transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1) !important;
-    font-weight: 500 !important;
-    font-size: 0.925rem !important;
+    margin: 0.15rem 0.25rem !important;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
-aside.fi-sidebar .fi-sidebar-item-button:hover {
-    background-color: var(--stitch-royal-blue-hover) !important;
+/* Default / Unselected Navigation Items (Pure Crisp White Text) */
+aside.fi-sidebar .fi-sidebar-item-label,
+aside.fi-sidebar .fi-sidebar-item-button span {
     color: #ffffff !important;
-    transform: translateX(2px) !important;
+    font-weight: 600 !important;
+    font-size: 0.895rem !important;
+    opacity: 0.92 !important;
 }
 
-/* Active State: Translucent Pill with White Text */
+aside.fi-sidebar .fi-sidebar-item-icon,
+aside.fi-sidebar .fi-sidebar-item-button svg {
+    color: #ffffff !important;
+    opacity: 0.92 !important;
+    width: 1.25rem !important;
+    height: 1.25rem !important;
+}
+
+/* Hover State */
+aside.fi-sidebar .fi-sidebar-item-button:hover {
+    background-color: rgba(255, 255, 255, 0.14) !important;
+    transform: translateX(3px) !important;
+}
+aside.fi-sidebar .fi-sidebar-item-button:hover .fi-sidebar-item-label,
+aside.fi-sidebar .fi-sidebar-item-button:hover span {
+    color: #ffffff !important;
+    opacity: 1 !important;
+}
+aside.fi-sidebar .fi-sidebar-item-button:hover .fi-sidebar-item-icon,
+aside.fi-sidebar .fi-sidebar-item-button:hover svg {
+    color: #ffffff !important;
+    opacity: 1 !important;
+}
+
+/* Active Navigation Item (Luminous Frosted Pill with Bold White Text) */
 aside.fi-sidebar .fi-sidebar-item.fi-active > .fi-sidebar-item-button,
 aside.fi-sidebar .fi-sidebar-item-active > .fi-sidebar-item-button,
 aside.fi-sidebar .fi-sidebar-item-button[aria-current="page"] {
-    background-color: var(--stitch-royal-blue-active) !important;
+    background: rgba(255, 255, 255, 0.22) !important;
+    backdrop-filter: blur(12px) !important;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.25) !important;
+    border: 1px solid rgba(255, 255, 255, 0.20) !important;
+}
+
+aside.fi-sidebar .fi-sidebar-item.fi-active .fi-sidebar-item-label,
+aside.fi-sidebar .fi-sidebar-item-active .fi-sidebar-item-label,
+aside.fi-sidebar .fi-sidebar-item-button[aria-current="page"] .fi-sidebar-item-label {
     color: #ffffff !important;
-    font-weight: 700 !important;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08) !important;
+    font-weight: 800 !important;
+    opacity: 1 !important;
 }
 
-/* Sidebar Icons */
-aside.fi-sidebar .fi-sidebar-item-icon {
+aside.fi-sidebar .fi-sidebar-item.fi-active .fi-sidebar-item-icon,
+aside.fi-sidebar .fi-sidebar-item-active .fi-sidebar-item-icon,
+aside.fi-sidebar .fi-sidebar-item-button[aria-current="page"] .fi-sidebar-item-icon {
     color: #ffffff !important;
-    opacity: 0.95 !important;
-    width: 1.35rem !important;
-    height: 1.35rem !important;
+    opacity: 1 !important;
 }
 
-/* Group Labels */
-aside.fi-sidebar .fi-sidebar-group-label {
-    color: rgba(255, 255, 255, 0.65) !important;
-    font-size: 0.7rem !important;
-    font-weight: 700 !important;
-    text-transform: uppercase !important;
-    letter-spacing: 0.08em !important;
-    margin-top: 1.2rem !important;
-    padding-left: 1rem !important;
+/* Grouped Tree Lines and Bullets for Sub-items */
+aside.fi-sidebar .fi-sidebar-item-grouped-border {
+    position: relative !important;
 }
-
-aside.fi-sidebar .fi-sidebar-group-collapse-button {
-    color: rgba(255, 255, 255, 0.7) !important;
+aside.fi-sidebar .fi-sidebar-item-grouped-border::before {
+    background-color: rgba(255, 255, 255, 0.35) !important;
+}
+aside.fi-sidebar .fi-sidebar-item-grouped-border div,
+aside.fi-sidebar .fi-sidebar-item-grouped-border span {
+    background-color: rgba(255, 255, 255, 0.8) !important;
+    box-shadow: 0 0 6px rgba(255, 255, 255, 0.5) !important;
 }
 
 aside.fi-sidebar .fi-sidebar-footer {
-    background-color: var(--stitch-royal-blue) !important;
+    background: transparent !important;
     border-top: none !important;
     padding: 0 !important;
 }
@@ -171,7 +226,200 @@ main.fi-main {
 }
 
 /* --------------------------------------------------------------------------
-   4. TABLES - CRISP WHITE, ELEVATED & MODERN (NO DARK MODE LEAK)
+   4. EXECUTIVE DASHBOARD METRIC CARDS (RICH, MODERN & ELEVATED)
+   -------------------------------------------------------------------------- */
+.stitch-stats-container {
+    display: grid !important;
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    gap: 1.5rem !important;
+    width: 100% !important;
+    margin-bottom: 2rem !important;
+}
+
+@media (max-width: 1280px) {
+    .stitch-stats-container {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    }
+}
+
+@media (max-width: 640px) {
+    .stitch-stats-container {
+        grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+    }
+}
+
+.stitch-stat-card {
+    background: #ffffff !important;
+    border-radius: 1.25rem !important;
+    padding: 1.65rem 1.5rem !important;
+    border: 1px solid #e2e8f0 !important;
+    box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05), 0 2px 6px -1px rgba(15, 23, 42, 0.02) !important;
+    position: relative !important;
+    overflow: hidden !important;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+}
+
+.stitch-stat-card:hover {
+    transform: translateY(-4px) !important;
+    box-shadow: 0 16px 36px -6px rgba(29, 88, 205, 0.12), 0 4px 12px -2px rgba(0, 0, 0, 0.04) !important;
+    border-color: rgba(29, 88, 205, 0.28) !important;
+}
+
+/* Top Accent Line */
+.stitch-stat-card::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    height: 3px !important;
+    background: transparent !important;
+    transition: background 0.25s ease !important;
+}
+
+.stitch-card-blue:hover::before {
+    background: linear-gradient(90deg, #1D58CD, #60a5fa) !important;
+}
+.stitch-card-amber:hover::before {
+    background: linear-gradient(90deg, #ea580c, #f59e0b) !important;
+}
+.stitch-card-green:hover::before {
+    background: linear-gradient(90deg, #059669, #34d399) !important;
+}
+.stitch-card-purple:hover::before {
+    background: linear-gradient(90deg, #7c3aed, #a78bfa) !important;
+}
+
+/* Header inside Card */
+.stitch-card-header {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    margin-bottom: 1.25rem !important;
+}
+
+/* Icon Box Containers */
+.stitch-icon-box {
+    width: 52px !important;
+    height: 52px !important;
+    border-radius: 16px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: transform 0.25s ease !important;
+}
+
+.stitch-stat-card:hover .stitch-icon-box {
+    transform: scale(1.08) !important;
+}
+
+.stitch-icon-box-blue {
+    background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%) !important;
+    color: #1D58CD !important;
+    border: 1px solid rgba(29, 88, 205, 0.15) !important;
+    box-shadow: 0 2px 8px rgba(29, 88, 205, 0.08) !important;
+}
+
+.stitch-icon-box-amber {
+    background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%) !important;
+    color: #ea580c !important;
+    border: 1px solid rgba(234, 88, 12, 0.15) !important;
+    box-shadow: 0 2px 8px rgba(234, 88, 12, 0.08) !important;
+}
+
+.stitch-icon-box-green {
+    background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%) !important;
+    color: #059669 !important;
+    border: 1px solid rgba(5, 150, 105, 0.15) !important;
+    box-shadow: 0 2px 8px rgba(5, 150, 105, 0.08) !important;
+}
+
+.stitch-icon-box-purple {
+    background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%) !important;
+    color: #7c3aed !important;
+    border: 1px solid rgba(124, 58, 237, 0.15) !important;
+    box-shadow: 0 2px 8px rgba(124, 58, 237, 0.08) !important;
+}
+
+/* Badges */
+.stitch-badge {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 0.35rem !important;
+    padding: 0.3rem 0.65rem !important;
+    border-radius: 9999px !important;
+    font-size: 0.75rem !important;
+    font-weight: 700 !important;
+}
+
+.stitch-badge-green {
+    background: #ecfdf5 !important;
+    color: #059669 !important;
+    border: 1px solid rgba(16, 185, 129, 0.25) !important;
+}
+
+.stitch-badge-amber {
+    background: #fff7ed !important;
+    color: #ea580c !important;
+    border: 1px solid rgba(234, 88, 12, 0.25) !important;
+}
+
+.stitch-badge-purple {
+    background: #f5f3ff !important;
+    color: #7c3aed !important;
+    border: 1px solid rgba(124, 58, 237, 0.25) !important;
+}
+
+/* Card Body */
+.stitch-card-label {
+    font-size: 0.85rem !important;
+    font-weight: 600 !important;
+    color: #64748b !important;
+    margin-bottom: 0.35rem !important;
+    letter-spacing: -0.01em !important;
+}
+
+.stitch-card-value {
+    font-size: 2.15rem !important;
+    font-weight: 900 !important;
+    color: #0f172a !important;
+    letter-spacing: -0.03em !important;
+    line-height: 1.1 !important;
+}
+
+.stitch-card-value-currency {
+    font-size: 1.7rem !important;
+    font-weight: 900 !important;
+    color: #0f172a !important;
+    letter-spacing: -0.02em !important;
+    line-height: 1.15 !important;
+}
+
+/* Card Footer Detail */
+.stitch-card-footer {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.4rem !important;
+    margin-top: 1rem !important;
+    padding-top: 0.85rem !important;
+    border-top: 1px solid #f1f5f9 !important;
+    font-size: 0.775rem !important;
+    font-weight: 500 !important;
+    color: #94a3b8 !important;
+}
+
+.stitch-card-footer-dot {
+    width: 6px !important;
+    height: 6px !important;
+    border-radius: 9999px !important;
+    display: inline-block !important;
+}
+
+/* --------------------------------------------------------------------------
+   5. TABLES - CRISP WHITE, ELEVATED & MODERN (NO DARK MODE LEAK)
    -------------------------------------------------------------------------- */
 .fi-ta-ctn,
 .dark .fi-ta-ctn {
@@ -182,7 +430,6 @@ main.fi-main {
     overflow: hidden !important;
 }
 
-/* Table Header Toolbar (Search, Filter, Actions) */
 .fi-ta-header,
 .dark .fi-ta-header,
 .fi-ta-header-toolbar,
@@ -192,7 +439,6 @@ main.fi-main {
     padding: 1rem 1.25rem !important;
 }
 
-/* Table Search Input */
 .fi-ta-search-field input,
 .dark .fi-ta-search-field input {
     background-color: #f8fafc !important;
@@ -211,7 +457,6 @@ main.fi-main {
     box-shadow: 0 0 0 3px rgba(29, 88, 205, 0.12) !important;
 }
 
-/* Table Content & Table Tag */
 .fi-ta-content,
 .dark .fi-ta-content,
 .fi-ta-table,
@@ -221,7 +466,6 @@ main.fi-main {
     width: 100% !important;
 }
 
-/* Column Header Cells */
 .fi-ta-header-cell,
 .dark .fi-ta-header-cell {
     background-color: #f8fafc !important;
@@ -242,7 +486,6 @@ main.fi-main {
     letter-spacing: 0.06em !important;
 }
 
-/* Table Rows */
 .fi-ta-row,
 .dark .fi-ta-row {
     background-color: #ffffff !important;
@@ -260,7 +503,6 @@ main.fi-main {
     background-color: #eff6ff !important;
 }
 
-/* Table Cells */
 .fi-ta-cell,
 .dark .fi-ta-cell {
     color: #1e293b !important;
@@ -269,13 +511,11 @@ main.fi-main {
     vertical-align: middle !important;
 }
 
-/* Primary text in table cells */
 .fi-ta-text-item,
 .dark .fi-ta-text-item {
     color: #1e293b !important;
 }
 
-/* Checkboxes */
 input[type="checkbox"].fi-checkbox-input,
 .dark input[type="checkbox"].fi-checkbox-input {
     border-color: #cbd5e1 !important;
@@ -290,7 +530,6 @@ input[type="checkbox"].fi-checkbox-input:checked,
     border-color: #1D58CD !important;
 }
 
-/* Pagination Bar */
 .fi-ta-pagination,
 .dark .fi-ta-pagination {
     background-color: #ffffff !important;
@@ -305,7 +544,6 @@ input[type="checkbox"].fi-checkbox-input:checked,
     font-weight: 500 !important;
 }
 
-/* Active Pagination Button */
 .fi-pagination-item-active button,
 .dark .fi-pagination-item-active button,
 .fi-ta-pagination button[aria-current="page"],
@@ -317,7 +555,6 @@ input[type="checkbox"].fi-checkbox-input:checked,
     box-shadow: 0 2px 6px rgba(29, 88, 205, 0.25) !important;
 }
 
-/* Primary Action Buttons (e.g., New customer, Create resi) */
 a.fi-btn-color-primary,
 button.fi-btn-color-primary,
 .fi-btn-color-primary {
@@ -339,7 +576,6 @@ button.fi-btn-color-primary:hover,
     box-shadow: 0 6px 18px rgba(29, 88, 205, 0.38) !important;
 }
 
-/* Danger Action Buttons */
 .stitch-input-resi-btn,
 a.fi-btn-color-danger,
 button.fi-btn-color-danger {
@@ -362,9 +598,6 @@ button.fi-btn-color-danger:hover {
     box-shadow: 0 6px 18px rgba(197, 22, 29, 0.45) !important;
 }
 
-/* --------------------------------------------------------------------------
-   5. LOGIN SCREEN ADAPTATIONS
-   -------------------------------------------------------------------------- */
 .fi-simple-main .fi-logo-title {
     color: #0f172a !important;
 }
