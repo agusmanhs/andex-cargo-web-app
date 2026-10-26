@@ -1,6 +1,6 @@
 /* ==========================================================================
    ANDEX CARGO - STITCH ADMIN THEME
-   Royal Blue Sidebar (#1D58CD), Pure White Topbar, Elevated Metric Cards
+   Royal Blue Sidebar (#1D58CD), Pure White Topbar, Elevated Tables & Cards
    ========================================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap');
@@ -17,6 +17,7 @@
 body, html {
     font-family: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
     background-color: #f8fafc !important;
+    color: #1e293b !important;
 }
 
 /* --------------------------------------------------------------------------
@@ -28,7 +29,6 @@ aside.fi-sidebar {
     box-shadow: 4px 0 24px rgba(29, 88, 205, 0.12) !important;
 }
 
-/* Sidebar scrollbar styling */
 aside.fi-sidebar nav,
 aside.fi-sidebar div {
     scrollbar-width: thin !important;
@@ -40,6 +40,24 @@ aside.fi-sidebar .fi-sidebar-header {
     background-color: var(--stitch-royal-blue) !important;
     border-bottom: none !important;
     padding: 1.25rem 1.25rem 0.5rem 1.25rem !important;
+}
+
+/* Sidebar New Shipment Red Button */
+.stitch-new-shipment-btn,
+a.stitch-new-shipment-btn {
+    background-color: var(--stitch-red) !important;
+    background: var(--stitch-red) !important;
+    color: #ffffff !important;
+    border: none !important;
+    border-radius: 0.75rem !important;
+    box-shadow: 0 4px 14px rgba(197, 22, 29, 0.4) !important;
+}
+
+.stitch-new-shipment-btn:hover,
+a.stitch-new-shipment-btn:hover {
+    background-color: var(--stitch-red-hover) !important;
+    background: var(--stitch-red-hover) !important;
+    box-shadow: 0 6px 18px rgba(197, 22, 29, 0.5) !important;
 }
 
 /* Sidebar Navigation Items */
@@ -88,12 +106,10 @@ aside.fi-sidebar .fi-sidebar-group-label {
     padding-left: 1rem !important;
 }
 
-/* Collapsible Group Arrows */
 aside.fi-sidebar .fi-sidebar-group-collapse-button {
     color: rgba(255, 255, 255, 0.7) !important;
 }
 
-/* Sidebar Footer */
 aside.fi-sidebar .fi-sidebar-footer {
     background-color: var(--stitch-royal-blue) !important;
     border-top: none !important;
@@ -114,7 +130,6 @@ header.fi-topbar .fi-topbar-item {
     color: #475569 !important;
 }
 
-/* Global Search Input Styling */
 .fi-global-search-field input {
     background-color: #f8fafc !important;
     border: 1px solid #e2e8f0 !important;
@@ -134,7 +149,7 @@ header.fi-topbar .fi-topbar-item {
 }
 
 /* --------------------------------------------------------------------------
-   3. DASHBOARD PAGE & HEADER STYLING
+   3. MAIN CONTENT & HEADINGS
    -------------------------------------------------------------------------- */
 main.fi-main {
     background-color: #f8fafc !important;
@@ -155,7 +170,176 @@ main.fi-main {
     margin-top: 0.25rem !important;
 }
 
-/* Red Action Button (+ Input Resi Baru) */
+/* --------------------------------------------------------------------------
+   4. TABLES - CRISP WHITE, ELEVATED & MODERN (NO DARK MODE LEAK)
+   -------------------------------------------------------------------------- */
+.fi-ta-ctn,
+.dark .fi-ta-ctn {
+    background-color: #ffffff !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 1.15rem !important;
+    box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.03), 0 2px 6px -1px rgba(0, 0, 0, 0.02) !important;
+    overflow: hidden !important;
+}
+
+/* Table Header Toolbar (Search, Filter, Actions) */
+.fi-ta-header,
+.dark .fi-ta-header,
+.fi-ta-header-toolbar,
+.dark .fi-ta-header-toolbar {
+    background-color: #ffffff !important;
+    border-bottom: 1px solid #edf2f7 !important;
+    padding: 1rem 1.25rem !important;
+}
+
+/* Table Search Input */
+.fi-ta-search-field input,
+.dark .fi-ta-search-field input {
+    background-color: #f8fafc !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 0.75rem !important;
+    color: #1e293b !important;
+    font-size: 0.875rem !important;
+    padding: 0.5rem 0.85rem 0.5rem 2.25rem !important;
+    box-shadow: none !important;
+}
+
+.fi-ta-search-field input:focus,
+.dark .fi-ta-search-field input:focus {
+    background-color: #ffffff !important;
+    border-color: #1D58CD !important;
+    box-shadow: 0 0 0 3px rgba(29, 88, 205, 0.12) !important;
+}
+
+/* Table Content & Table Tag */
+.fi-ta-content,
+.dark .fi-ta-content,
+.fi-ta-table,
+.dark .fi-ta-table {
+    background-color: #ffffff !important;
+    color: #1e293b !important;
+    width: 100% !important;
+}
+
+/* Column Header Cells */
+.fi-ta-header-cell,
+.dark .fi-ta-header-cell {
+    background-color: #f8fafc !important;
+    border-bottom: 1px solid #e2e8f0 !important;
+    padding: 0.85rem 1rem !important;
+}
+
+.fi-ta-header-cell-label,
+.dark .fi-ta-header-cell-label,
+.fi-ta-header-cell span,
+.dark .fi-ta-header-cell span,
+.fi-ta-header-cell button,
+.dark .fi-ta-header-cell button {
+    color: #475569 !important;
+    font-weight: 700 !important;
+    font-size: 0.75rem !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.06em !important;
+}
+
+/* Table Rows */
+.fi-ta-row,
+.dark .fi-ta-row {
+    background-color: #ffffff !important;
+    border-bottom: 1px solid #f1f5f9 !important;
+    transition: background-color 0.15s ease !important;
+}
+
+.fi-ta-row:hover,
+.dark .fi-ta-row:hover {
+    background-color: #f8fafc !important;
+}
+
+.fi-ta-row.fi-ta-row-selected,
+.dark .fi-ta-row.fi-ta-row-selected {
+    background-color: #eff6ff !important;
+}
+
+/* Table Cells */
+.fi-ta-cell,
+.dark .fi-ta-cell {
+    color: #1e293b !important;
+    padding: 0.85rem 1rem !important;
+    font-size: 0.875rem !important;
+    vertical-align: middle !important;
+}
+
+/* Primary text in table cells */
+.fi-ta-text-item,
+.dark .fi-ta-text-item {
+    color: #1e293b !important;
+}
+
+/* Checkboxes */
+input[type="checkbox"].fi-checkbox-input,
+.dark input[type="checkbox"].fi-checkbox-input {
+    border-color: #cbd5e1 !important;
+    border-radius: 0.35rem !important;
+    background-color: #ffffff !important;
+    color: #1D58CD !important;
+}
+
+input[type="checkbox"].fi-checkbox-input:checked,
+.dark input[type="checkbox"].fi-checkbox-input:checked {
+    background-color: #1D58CD !important;
+    border-color: #1D58CD !important;
+}
+
+/* Pagination Bar */
+.fi-ta-pagination,
+.dark .fi-ta-pagination {
+    background-color: #ffffff !important;
+    border-top: 1px solid #e2e8f0 !important;
+    padding: 0.85rem 1.25rem !important;
+}
+
+.fi-ta-pagination-records-info,
+.dark .fi-ta-pagination-records-info {
+    color: #64748b !important;
+    font-size: 0.875rem !important;
+    font-weight: 500 !important;
+}
+
+/* Active Pagination Button */
+.fi-pagination-item-active button,
+.dark .fi-pagination-item-active button,
+.fi-ta-pagination button[aria-current="page"],
+.dark .fi-ta-pagination button[aria-current="page"] {
+    background-color: #1D58CD !important;
+    color: #ffffff !important;
+    font-weight: 700 !important;
+    border-radius: 0.5rem !important;
+    box-shadow: 0 2px 6px rgba(29, 88, 205, 0.25) !important;
+}
+
+/* Primary Action Buttons (e.g., New customer, Create resi) */
+a.fi-btn-color-primary,
+button.fi-btn-color-primary,
+.fi-btn-color-primary {
+    background-color: #1D58CD !important;
+    border-color: #1D58CD !important;
+    color: #ffffff !important;
+    font-weight: 700 !important;
+    border-radius: 0.65rem !important;
+    padding: 0.6rem 1.2rem !important;
+    box-shadow: 0 4px 14px rgba(29, 88, 205, 0.28) !important;
+    transition: all 0.2s ease !important;
+}
+
+a.fi-btn-color-primary:hover,
+button.fi-btn-color-primary:hover,
+.fi-btn-color-primary:hover {
+    background-color: #1546A8 !important;
+    transform: translateY(-1px) !important;
+    box-shadow: 0 6px 18px rgba(29, 88, 205, 0.38) !important;
+}
+
+/* Danger Action Buttons */
 .stitch-input-resi-btn,
 a.fi-btn-color-danger,
 button.fi-btn-color-danger {
@@ -179,7 +363,7 @@ button.fi-btn-color-danger:hover {
 }
 
 /* --------------------------------------------------------------------------
-   4. LOGIN SCREEN ADAPTATIONS
+   5. LOGIN SCREEN ADAPTATIONS
    -------------------------------------------------------------------------- */
 .fi-simple-main .fi-logo-title {
     color: #0f172a !important;

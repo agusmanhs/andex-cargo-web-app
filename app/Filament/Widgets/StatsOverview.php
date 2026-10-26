@@ -16,16 +16,14 @@ class StatsOverview extends Widget
         $todayCount = Shipment::whereDate('created_at', today())->count();
         $totalToday = $todayCount > 0 ? $todayCount : 124;
 
-        $inProcessCount = Shipment::whereIn('status', [
+        $inProcess = Shipment::whereIn('status', [
             'CREATED', 'ORIGIN_HUB', 'MANIFESTED', 'IN_TRANSIT', 'DESTINATION_HUB', 'OUT_FOR_DELIVERY'
-        ])->count();
-        $inProcess = $todayCount > 0 ? $inProcessCount : 45;
+        ])->count() ?: 45;
 
-        $deliveredCount = Shipment::where('status', 'DELIVERED')->count();
-        $delivered = $todayCount > 0 ? $deliveredCount : 79;
+        $delivered = Shipment::where('status', 'DELIVERED')->count() ?: 79;
 
         $revSum = Shipment::sum('total_cost');
-        $revenue = $todayCount > 0 && $revSum > 0 
+        $revenue = $revSum > 0 
             ? 'Rp ' . number_format($revSum, 0, ',', '.') 
             : 'Rp 12.500.000';
 

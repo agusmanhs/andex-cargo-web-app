@@ -3,15 +3,14 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\CustomerResource\Pages;
-use App\Filament\Resources\CustomerResource\RelationManagers;
 use App\Models\Customer;
+use App\Models\Provinsi;
+use App\Models\Kabupaten;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class CustomerResource extends Resource
 {
@@ -26,34 +25,45 @@ class CustomerResource extends Resource
         return $form
             ->schema([
                 Forms\Components\TextInput::make('code')
+                    ->label('Kode Customer')
                     ->maxLength(30),
                 Forms\Components\TextInput::make('name')
+                    ->label('Nama Customer / Perusahaan')
                     ->required()
                     ->maxLength(150),
                 Forms\Components\TextInput::make('pic_name')
+                    ->label('Nama PIC / Kontak')
                     ->maxLength(100),
                 Forms\Components\TextInput::make('phone')
+                    ->label('Nomor Telepon')
                     ->tel()
                     ->required()
                     ->maxLength(30),
                 Forms\Components\TextInput::make('whatsapp')
+                    ->label('Nomor WhatsApp')
                     ->maxLength(30),
                 Forms\Components\TextInput::make('email')
+                    ->label('Email')
                     ->email()
                     ->maxLength(100),
-                Forms\Components\TextInput::make('province')
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('regency')
-                    ->maxLength(255),
-                Forms\Components\Textarea::make('address')
-                    ->columnSpanFull(),
-                Forms\Components\TextInput::make('customer_type')
+                Forms\Components\Select::make('customer_type')
+                    ->label('Jenis Pelanggan')
+                    ->options([
+                        'REGULAR' => 'Regular / Perorangan',
+                        'CORPORATE' => 'Corporate / Perusahaan',
+                    ])
+                    ->default('REGULAR')
                     ->required(),
                 Forms\Components\Select::make('branch_id')
-                    ->relationship('branch', 'name'),
-                Forms\Components\TextInput::make('user_id')
-                    ->numeric(),
+                    ->label('Cabang Terdaftar')
+                    ->relationship('branch', 'name')
+                    ->default(2),
+                Forms\Components\Textarea::make('address')
+                    ->label('Alamat Lengkap')
+                    ->columnSpanFull(),
                 Forms\Components\Toggle::make('is_active')
+                    ->label('Status Aktif')
+                    ->default(true)
                     ->required(),
             ]);
     }
@@ -61,43 +71,63 @@ class CustomerResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
+            ->defaultSort('id', 'desc')
             ->columns([
                 Tables\Columns\TextColumn::make('code')
-                    ->searchable(),
+                    ->label('Kode')
+                    ->searchable()
+                    ->weight('bold')
+                    ->color('primary')
+                    ->copyable(),
                 Tables\Columns\TextColumn::make('name')
-                    ->searchable(),
+                    ->label('Nama Pelanggan / Perusahaan')
+                    ->searchable()
+                    ->weight('bold')
+                    ->wrap(),
                 Tables\Columns\TextColumn::make('pic_name')
+                    ->label('PIC')
+                    ->placeholder('-')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('phone')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('whatsapp')
+                    ->label('No. Telepon / WA')
+                    ->description(fn (Customer $record): ?string => $record->whatsapp && $record->whatsapp !== $record->phone ? 'WA: ' . $record->whatsapp : null)
                     ->searchable(),
                 Tables\Columns\TextColumn::make('email')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('province')
+                    ->label('Email')
+                    ->placeholder('-')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('regency')
+                    ->label('Kota/Kabupaten')
+                    ->formatStateUsing(function ($state) {
+                        if (!$state) return '-';
+                        if (is_numeric($state)) {
+                            $kab = Kabupaten::where('kode_kabupaten', $state)->first();
+                            return $kab ? $kab->nama_kabupaten : $state;
+                        }
+                        return $state;
+                    })
                     ->searchable(),
-                Tables\Columns\TextColumn::make('customer_type'),
-                Tables\Columns\TextColumn::make('branch.name')
-                    ->numeric()
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('user_id')
-                    ->numeric()
-                    ->sortable(),
+                Tables\Columns\TextColumn::make('customer_type')
+                    ->label('Tipe')
+                    ->badge()
+                    ->color(fn (string $state): string => match ($state) {
+                        'CORPORATE' => 'info',
+                        'REGULAR' => 'gray',
+                        default => 'gray',
+                    }),
                 Tables\Columns\IconColumn::make('is_active')
+                    ->label('Status')
                     ->boolean(),
-                Tables\Columns\TextColumn::make('created_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('updated_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
-                //
+                Tables\Filters\SelectFilter::make('customer_type')
+                    ->label('Tipe Pelanggan')
+                    ->options([
+                        'CORPORATE' => 'Corporate (B2B)',
+                        'REGULAR' => 'Regular',
+                    ]),
+                Tables\Filters\TernaryFilter::make('is_active')
+                    ->label('Status Aktif'),
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
@@ -107,13 +137,6 @@ class CustomerResource extends Resource
                     Tables\Actions\DeleteBulkAction::make(),
                 ]),
             ]);
-    }
-
-    public static function getRelations(): array
-    {
-        return [
-            //
-        ];
     }
 
     public static function getPages(): array
