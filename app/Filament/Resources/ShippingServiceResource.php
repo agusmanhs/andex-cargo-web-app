@@ -18,7 +18,7 @@ class ShippingServiceResource extends Resource
     protected static ?string $model = ShippingService::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-sparkles';
-    protected static ?string $navigationGroup = 'Master Data & Tarif';
+    protected static ?string $navigationGroup = 'Master Wilayah & Tarif';
     protected static ?string $navigationLabel = 'Layanan Ekspedisi';
 
     public static function form(Form $form): Form

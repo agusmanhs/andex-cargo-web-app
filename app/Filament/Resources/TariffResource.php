@@ -18,7 +18,7 @@ class TariffResource extends Resource
     protected static ?string $model = Tariff::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-calculator';
-    protected static ?string $navigationGroup = 'Master Data & Tarif';
+    protected static ?string $navigationGroup = 'Master Wilayah & Tarif';
     protected static ?string $navigationLabel = 'Master Tarif Ekspedisi';
 
     public static function form(Form $form): Form

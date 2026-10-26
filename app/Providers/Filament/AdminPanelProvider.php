@@ -42,7 +42,7 @@ class AdminPanelProvider extends PanelProvider
             ->sidebarCollapsibleOnDesktop()
             ->navigationGroups([
                 NavigationGroup::make('Operasional Kargo')->icon('heroicon-o-truck'),
-                NavigationGroup::make('Master Data & Tarif')->icon('heroicon-o-table-cells'),
+                NavigationGroup::make('Master Wilayah & Tarif')->icon('heroicon-o-table-cells'),
                 NavigationGroup::make('Pengaturan Sistem')->icon('heroicon-o-cog-6-tooth'),
             ])
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')

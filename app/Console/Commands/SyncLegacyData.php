@@ -186,7 +186,7 @@ class SyncLegacyData extends Command
                     'province' => $c['provinsi'],
                     'regency' => $c['kabupaten'],
                     'address' => $c['alamat'],
-                    'customer_type' => 'REGULAR',
+                    'customer_type' => preg_match('/^(PT|CV|UD|YAYASAN|TOKO)\b/i', trim($c['nama'])) ? 'CORPORATE' : 'REGULAR',
                     'branch_id' => $branchId,
                     'is_active' => $c['active'] === '1',
                 ]

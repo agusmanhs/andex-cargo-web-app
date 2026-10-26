@@ -7,10 +7,17 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Province extends Model
 {
-    protected $fillable = ['code', 'name'];
+    protected $table = 'provinsi';
+
+    protected $fillable = ['code', 'name', 'kode_provinsi', 'nama_provinsi'];
 
     public function regencies(): HasMany
     {
         return $this->hasMany(Regency::class, 'province_code', 'code');
+    }
+
+    public function kabupaten(): HasMany
+    {
+        return $this->regencies();
     }
 }
