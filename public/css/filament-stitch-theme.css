@@ -1,0 +1,194 @@
+/* ==========================================================================
+   ANDEX CARGO - STITCH ADMIN THEME
+   Royal Blue Sidebar (#1D58CD), Pure White Topbar, Elevated Metric Cards
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap');
+
+:root {
+    --stitch-royal-blue: #1D58CD;
+    --stitch-royal-blue-dark: #1546A8;
+    --stitch-royal-blue-hover: rgba(255, 255, 255, 0.10);
+    --stitch-royal-blue-active: rgba(255, 255, 255, 0.18);
+    --stitch-red: #c5161d;
+    --stitch-red-hover: #a81318;
+}
+
+body, html {
+    font-family: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+    background-color: #f8fafc !important;
+}
+
+/* --------------------------------------------------------------------------
+   1. SIDEBAR - SOLID ROYAL BLUE
+   -------------------------------------------------------------------------- */
+aside.fi-sidebar {
+    background-color: var(--stitch-royal-blue) !important;
+    border-right: none !important;
+    box-shadow: 4px 0 24px rgba(29, 88, 205, 0.12) !important;
+}
+
+/* Sidebar scrollbar styling */
+aside.fi-sidebar nav,
+aside.fi-sidebar div {
+    scrollbar-width: thin !important;
+    scrollbar-color: rgba(255, 255, 255, 0.25) transparent !important;
+}
+
+/* Sidebar Header Area */
+aside.fi-sidebar .fi-sidebar-header {
+    background-color: var(--stitch-royal-blue) !important;
+    border-bottom: none !important;
+    padding: 1.25rem 1.25rem 0.5rem 1.25rem !important;
+}
+
+/* Sidebar Navigation Items */
+aside.fi-sidebar .fi-sidebar-item-button {
+    color: rgba(255, 255, 255, 0.88) !important;
+    border-radius: 0.75rem !important;
+    padding: 0.65rem 0.85rem !important;
+    margin: 0.15rem 0.5rem !important;
+    transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    font-weight: 500 !important;
+    font-size: 0.925rem !important;
+}
+
+aside.fi-sidebar .fi-sidebar-item-button:hover {
+    background-color: var(--stitch-royal-blue-hover) !important;
+    color: #ffffff !important;
+    transform: translateX(2px) !important;
+}
+
+/* Active State: Translucent Pill with White Text */
+aside.fi-sidebar .fi-sidebar-item.fi-active > .fi-sidebar-item-button,
+aside.fi-sidebar .fi-sidebar-item-active > .fi-sidebar-item-button,
+aside.fi-sidebar .fi-sidebar-item-button[aria-current="page"] {
+    background-color: var(--stitch-royal-blue-active) !important;
+    color: #ffffff !important;
+    font-weight: 700 !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08) !important;
+}
+
+/* Sidebar Icons */
+aside.fi-sidebar .fi-sidebar-item-icon {
+    color: #ffffff !important;
+    opacity: 0.95 !important;
+    width: 1.35rem !important;
+    height: 1.35rem !important;
+}
+
+/* Group Labels */
+aside.fi-sidebar .fi-sidebar-group-label {
+    color: rgba(255, 255, 255, 0.65) !important;
+    font-size: 0.7rem !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.08em !important;
+    margin-top: 1.2rem !important;
+    padding-left: 1rem !important;
+}
+
+/* Collapsible Group Arrows */
+aside.fi-sidebar .fi-sidebar-group-collapse-button {
+    color: rgba(255, 255, 255, 0.7) !important;
+}
+
+/* Sidebar Footer */
+aside.fi-sidebar .fi-sidebar-footer {
+    background-color: var(--stitch-royal-blue) !important;
+    border-top: none !important;
+    padding: 0 !important;
+}
+
+/* --------------------------------------------------------------------------
+   2. TOPBAR - CLEAN WHITE & SLEEK SEARCH
+   -------------------------------------------------------------------------- */
+header.fi-topbar {
+    background-color: #ffffff !important;
+    border-bottom: 1px solid #eef2f6 !important;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.02) !important;
+    height: 4.5rem !important;
+}
+
+header.fi-topbar .fi-topbar-item {
+    color: #475569 !important;
+}
+
+/* Global Search Input Styling */
+.fi-global-search-field input {
+    background-color: #f8fafc !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 0.75rem !important;
+    padding: 0.55rem 1rem 0.55rem 2.5rem !important;
+    font-size: 0.875rem !important;
+    color: #1e293b !important;
+    transition: all 0.2s ease !important;
+    width: 100% !important;
+    max-width: 420px !important;
+}
+
+.fi-global-search-field input:focus {
+    background-color: #ffffff !important;
+    border-color: #1D58CD !important;
+    box-shadow: 0 0 0 3px rgba(29, 88, 205, 0.12) !important;
+}
+
+/* --------------------------------------------------------------------------
+   3. DASHBOARD PAGE & HEADER STYLING
+   -------------------------------------------------------------------------- */
+main.fi-main {
+    background-color: #f8fafc !important;
+    padding-top: 1.5rem !important;
+}
+
+.fi-header-heading {
+    font-weight: 900 !important;
+    color: #0f172a !important;
+    letter-spacing: -0.025em !important;
+    font-size: 1.85rem !important;
+}
+
+.fi-header-subheading {
+    color: #64748b !important;
+    font-size: 0.925rem !important;
+    font-weight: 500 !important;
+    margin-top: 0.25rem !important;
+}
+
+/* Red Action Button (+ Input Resi Baru) */
+.stitch-input-resi-btn,
+a.fi-btn-color-danger,
+button.fi-btn-color-danger {
+    background-color: var(--stitch-red) !important;
+    border-color: var(--stitch-red) !important;
+    color: #ffffff !important;
+    font-weight: 700 !important;
+    border-radius: 0.65rem !important;
+    padding: 0.65rem 1.25rem !important;
+    box-shadow: 0 4px 14px rgba(197, 22, 29, 0.35) !important;
+    transition: all 0.2s ease !important;
+}
+
+.stitch-input-resi-btn:hover,
+a.fi-btn-color-danger:hover,
+button.fi-btn-color-danger:hover {
+    background-color: var(--stitch-red-hover) !important;
+    border-color: var(--stitch-red-hover) !important;
+    transform: translateY(-1px) !important;
+    box-shadow: 0 6px 18px rgba(197, 22, 29, 0.45) !important;
+}
+
+/* --------------------------------------------------------------------------
+   4. LOGIN SCREEN ADAPTATIONS
+   -------------------------------------------------------------------------- */
+.fi-simple-main .fi-logo-title {
+    color: #0f172a !important;
+}
+
+.fi-simple-main .fi-logo-subtitle {
+    color: #64748b !important;
+}
+
+.fi-simple-main .fi-logo-circle {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+}
