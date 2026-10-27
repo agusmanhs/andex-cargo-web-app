@@ -609,3 +609,34 @@ button.fi-btn-color-danger:hover {
 .fi-simple-main .fi-logo-circle {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
 }
+
+
+/* Apex Charts Widget Custom Stitch Styling */
+.filament-apex-charts-widget,
+.fi-wi-widget {
+    background-color: #ffffff !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 1rem !important;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.05) !important;
+    transition: all 0.2s ease !important;
+}
+
+.filament-apex-charts-widget:hover,
+.fi-wi-widget:hover {
+    box-shadow: 0 8px 24px -4px rgba(15, 23, 42, 0.08) !important;
+    border-color: #cbd5e1 !important;
+}
+
+.filament-apex-charts-header-title,
+.fi-section-header-title {
+    font-size: 1.05rem !important;
+    font-weight: 800 !important;
+    color: #0f172a !important;
+    letter-spacing: -0.01em !important;
+}
+
+.filament-apex-charts-header-subheading,
+.fi-section-header-description {
+    font-size: 0.815rem !important;
+    color: #64748b !important;
+}

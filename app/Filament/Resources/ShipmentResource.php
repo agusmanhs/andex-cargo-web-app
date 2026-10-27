@@ -258,7 +258,28 @@ class ShipmentResource extends Resource
                     ]),
             ])
             ->actions([
+                Tables\Actions\Action::make('print_thermal')
+                    ->label('Cetak Resi')
+                    ->icon('heroicon-o-printer')
+                    ->color('danger')
+                    ->url(fn (Shipment $record): string => route('print.resi', $record))
+                    ->openUrlInNewTab(),
+                Tables\Actions\Action::make('print_nota')
+                    ->label('Nota')
+                    ->icon('heroicon-o-receipt-percent')
+                    ->color('primary')
+                    ->url(fn (Shipment $record): string => route('print.nota', $record))
+                    ->openUrlInNewTab(),
                 Tables\Actions\EditAction::make(),
+            ])
+            ->headerActions([
+                \pxlrbt\FilamentExcel\Actions\Tables\ExportAction::make()
+                    ->label('Export Excel')
+                    ->icon('heroicon-o-arrow-down-tray'),
+            ])
+            ->bulkActions([
+                \pxlrbt\FilamentExcel\Actions\Tables\ExportBulkAction::make()
+                    ->label('Export Terpilih ke Excel'),
             ]);
     }
 

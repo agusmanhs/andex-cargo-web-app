@@ -89,6 +89,9 @@ class AdminPanelProvider extends PanelProvider
             ->widgets([
                 StatsOverview::class,
             ])
+            ->plugins([
+                \Leandrocfe\FilamentApexCharts\FilamentApexChartsPlugin::make(),
+            ])
             ->middleware([
                 EncryptCookies::class,
                 AddQueuedCookiesToResponse::class,

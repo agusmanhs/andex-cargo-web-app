@@ -130,7 +130,22 @@ class ManifestResource extends Resource
                     }),
             ])
             ->actions([
+                Tables\Actions\Action::make('print_manifest')
+                    ->label('Cetak Surat Jalan')
+                    ->icon('heroicon-o-document-text')
+                    ->color('success')
+                    ->url(fn (Manifest $record): string => route('print.manifest', $record))
+                    ->openUrlInNewTab(),
                 Tables\Actions\EditAction::make(),
+            ])
+            ->headerActions([
+                \pxlrbt\FilamentExcel\Actions\Tables\ExportAction::make()
+                    ->label('Export Excel')
+                    ->icon('heroicon-o-arrow-down-tray'),
+            ])
+            ->bulkActions([
+                \pxlrbt\FilamentExcel\Actions\Tables\ExportBulkAction::make()
+                    ->label('Export Terpilih ke Excel'),
             ]);
     }
 
