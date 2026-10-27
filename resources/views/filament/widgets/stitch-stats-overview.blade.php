@@ -1,3 +1,4 @@
+<x-filament-widgets::widget>
 <div class="stitch-stats-container">
     <!-- Card 1: Total Kiriman Hari Ini -->
     <div class="stitch-stat-card stitch-card-blue">
@@ -97,3 +98,5 @@
         </div>
     </div>
 </div>
+
+</x-filament-widgets::widget>

@@ -88,6 +88,9 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->widgets([
                 StatsOverview::class,
+                \App\Filament\Widgets\ShipmentMonthlyTrendChart::class,
+                \App\Filament\Widgets\ShipmentStatusDonutChart::class,
+                \App\Filament\Widgets\TopDestinationsChart::class,
             ])
             ->plugins([
                 \Leandrocfe\FilamentApexCharts\FilamentApexChartsPlugin::make(),

@@ -11,10 +11,7 @@ class ShipmentStatusDonutChart extends ApexChartWidget
     protected static ?string $heading = "Status Distribusi Kargo";
     protected static ?string $subheading = "Proporsi real-time status pengiriman";
     protected static ?int $sort = 3;
-    protected int | string | array $columnSpan = [
-        "default" => 12,
-        "lg" => 4,
-    ];
+    protected int | string | array $columnSpan = 1;
 
     protected function getOptions(): array
     {

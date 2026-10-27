@@ -12,10 +12,7 @@ class ShipmentMonthlyTrendChart extends ApexChartWidget
     protected static ?string $heading = "Trend Volume Pengiriman (12 Bulan Terakhir)";
     protected static ?string $subheading = "Statistik jumlah resi pengiriman kargo per bulan";
     protected static ?int $sort = 2;
-    protected int | string | array $columnSpan = [
-        "default" => 12,
-        "lg" => 8,
-    ];
+    protected int | string | array $columnSpan = 1;
 
     protected function getOptions(): array
     {
