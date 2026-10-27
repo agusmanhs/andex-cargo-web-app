@@ -64,14 +64,7 @@ class AdminPanelProvider extends PanelProvider
                 PanelsRenderHook::HEAD_END,
                 fn (): string => '<link rel="stylesheet" href="' . asset('css/filament-stitch-theme.css') . '?v=' . time() . '"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">'
             )
-            ->renderHook(
-                PanelsRenderHook::SIDEBAR_NAV_START,
-                fn () => view('filament.admin.sidebar-button')
-            )
-            ->renderHook(
-                PanelsRenderHook::SIDEBAR_FOOTER,
-                fn () => view('filament.admin.sidebar-footer')
-            )
+
             ->renderHook(
                 PanelsRenderHook::TOPBAR_START,
                 fn () => view('filament.admin.topbar-brand')

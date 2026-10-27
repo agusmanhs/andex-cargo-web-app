@@ -1,4 +1,4 @@
-<x-filament-widgets::widget>
+<x-filament-widgets::widget class="stitch-stats-widget-root">
 <div class="stitch-stats-container">
     <!-- Card 1: Total Kiriman Hari Ini -->
     <div class="stitch-stat-card stitch-card-blue">
@@ -77,7 +77,7 @@
     </div>
 
     <!-- Card 4: Pendapatan Cabang -->
-    <div class="stitch-stat-card stitch-card-purple" style="background: radial-gradient(circle at 100% 0%, rgba(139, 92, 246, 0.12) 0%, #ffffff 65%) !important;">
+    <div class="stitch-stat-card stitch-card-purple" >
         <div class="stitch-card-header">
             <div class="stitch-icon-box stitch-icon-box-purple">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
